@@ -23,7 +23,7 @@ const FORMULA = {
   combined: 'R_p = R₂R₃/(R₂+R₃)   ·   R_T = R₁+R_p   ·   I₁ = I₂+I₃',
 };
 
-const fmtR = r => (r >= 1000 ? `${+(r / 1000).toFixed(3)} kΩ` : `${+r.toFixed(2)} Ω`);
+const fmtR = r => (r >= 1000 ? `${+(r / 1000).toFixed(3)} kΩ` : r < 10 ? `${+r.toFixed(3)} Ω` : `${+r.toFixed(2)} Ω`);
 const fmtI = i => (i >= 1 ? `${i.toFixed(3)} A` : i >= 1e-3 ? `${(i * 1e3).toFixed(2)} mA` : `${(i * 1e6).toFixed(1)} µA`);
 const fmtV = v => `${v.toFixed(2)} V`;
 const fmtP = p => (p >= 1 ? `${p.toFixed(2)} W` : `${(p * 1e3).toFixed(1)} mW`);

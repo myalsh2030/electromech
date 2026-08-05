@@ -194,7 +194,8 @@ for (const c of CONCEPTS) {
   if (c.depth === 'core') {
     gate(sm.length + ap.length > 0, 'core', `«${c.id}» (core) لا يُتمرَّن: لا محاكاة ولا جلسة عملية`);
     gate(defined.has(c.id), 'core', `«${c.id}» (core) بلا مدخل في المسرد`);
-    if (HAS_KIT) gate(st.length > 0, 'core', `«${c.id}» (core) لا يُعرَض في أي حصة قاعة`);
+    // العرض أمام المتدرب يقع في حصة قاعة أو في جلسة عملية — المفاهيم العملية تُعرَض في جلستها
+    if (HAS_KIT) gate(st.length + ap.length > 0, 'core', `«${c.id}» (core) لا يُعرَض في أي حصة قاعة ولا جلسة عملية`);
   }
 
   // ترتيب المتطلبات: لا يُدرَّس مفهوم قبل ما يعتمد عليه
